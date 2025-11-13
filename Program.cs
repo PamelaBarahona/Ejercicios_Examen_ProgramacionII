@@ -35,15 +35,30 @@ namespace SistemadeNotas
                 matricula.NotasParciales.AddRange(new List <double> { n1, n2, n3}); 
 
                 //calcular notas
-                double notaFinal = matricula.CalcularNotaFinal(); 
-                double notaFinal2= matricula.CalcularNotaFinal(n1, n2, n3); 
+                double notaFinal= matricula.CalcularNotaFinal(n1, n2, n3);
 
-            } //fin del try 
-            finally
-            {
+                Console.WriteLine("\n========================");
+                Console.WriteLine("\n====RESUMEN DE MATRICULA======");
+                Console.WriteLine($"Nombre del Alumno: {alumno.Nombre}");
+                Console.WriteLine($"Numero de Cuenta: {alumno.NumeroCuenta}");
+                Console.WriteLine($"Correo Institucional: {alumno.Email}");
+                Console.WriteLine($"Aginatura: {asignatura.NombreAsignatura}");
+                Console.WriteLine($"Nombre del Docente: {asignatura.NombreDocente}"); 
+                Console.WriteLine($"Horario de Clase: {asignatura.Horario}");
+
+                Console.WriteLine($"\nNota Final: {notaFinal}");
+                Console.WriteLine($"Mensaje: {matricula.ObtenerMensajeNota(notaFinal)}"); 
+
                 
+            } //fin del try 
+            catch (FormatException)
+            {
+            Console.WriteLine("Error. Debe ingresar un numero valido para las notas");    
             }
-        }
+            
+            Console.WriteLine("\nPresione cualquier tecla para salir..."); 
+            Console.ReadKey(); 
+        } //fin del public static void 
     }
 
 } // fin del namespace 
