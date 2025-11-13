@@ -1,8 +1,0 @@
-
-namespace SistemadeNotas
-{
-    public interface ICalculoNota
-    {
-        double CalcularNotaFinal();
-    }
-}
